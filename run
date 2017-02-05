@@ -1,0 +1,15 @@
+#!/bin/bash
+
+##############################################
+# (c) Raymond Ng 2016 University of Sheffield 
+##############################################
+
+mkdir -p bos_df1norm_idfunsmoothed/p0
+## TRAINING
+python tools/gen_vsm.py -C LRE96d.train.config.p0.py data/PHN_EN_fisher.list
+python tools/trainLR.py -C LRE96d.train.config.p0.py
+
+## TESTING
+python tools/gen_vsm.py -C LRE96e.test.config.p0.py data/PHN_EN_fisher.list
+python tools/testLR.py -C LRE96e.test.config.p0.py
+
